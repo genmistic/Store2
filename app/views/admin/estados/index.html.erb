@@ -1,0 +1,28 @@
+<h1>Admin::Estados#index</h1>
+<div class="card">
+  <div class="card-body">
+    <h5  class="card-title"> Index </h5>
+    <%= link_to "New", admin_new_estado_path, class: 'btn btn-primary' %>
+    <% if flash[:set_estado_error] %>
+      <%= flash[:set_estado_error] %>
+    <% end %>
+
+    <table class="table table-hover">
+      <tr>
+        <th> Description </th>
+        <th> Action </th>
+      </tr>
+      <% @estados.each do |c| %>
+        <tr>
+          <td> <%= c.description %> </td>
+          <td>
+              <%= link_to "Edit", admin_edit_estado_path(c) %>
+              <%= link_to "Delete", admin_estado_path(c), method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+  </div>
+</div>
+

@@ -1,0 +1,34 @@
+<h1>Admin::Orders#index</h1>
+
+<div class="card">
+    <div class="card-body">
+        <h5> Index </h5>
+        <%= link_to "New", admin_new_order_path, class: 'btn btn-primary' %>
+        <% if flash[:set_order_error] %>
+            <%= flash[:set_order_error] %>
+        <% end %>
+
+        <table class="table table-hover">
+            <tr>
+                <th> Number </th>
+                <th> Total </th>
+                <th> User </th>
+                <th> Status </th>
+
+            </tr>
+            <% @orders.each do |p| %>
+                <tr>
+                    <td> <%= p.number %> </td>
+                    <td> <%= p.total  %> </td>
+                    <td> <%= p.user.id  %> </td>
+                    <td> <%= p.estado.id  %> </td>
+                    <td>
+                        <%= link_to "Edit", admin_edit_order_path(p), class: 'btn btn-warning'  %>
+                        <%= link_to "Delete", admin_order_path(p), class: 'btn btn-warning', method: :delete, data: { confirm: "Are you sure?" }  %>
+                    </td>
+                </tr>
+            <% end %>
+        </table>
+    </div>
+</div>
+

@@ -1,0 +1,29 @@
+<h1>Admin::Roles#index</h1>
+
+
+<div class="card">
+  <div class="card-body">
+    <h5  class="card-title"> Index </h5>
+    <%= link_to "New", admin_new_role_path, class: 'btn btn-primary' %>
+    <% if flash[:set_role_error] %>
+      <%= flash[:set_role_error] %>
+    <% end %>
+
+    <table class="table table-hover">
+      <tr>
+        <th> Name </th>
+        <th> Action </th>
+      </tr>
+      <% @roles.each do |roles| %>
+        <tr>
+          <td> <%= roles.name %> </td>
+          <td>
+              <%= link_to "Edit", admin_edit_role_path(roles) %>
+              <%= link_to "Delete", admin_role_path(roles), method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+  </div>
+</div>

@@ -1,0 +1,22 @@
+
+   
+<nav class="navbar fixed-top navbar-light bg-primary">
+    <div class="container">
+        <div class="row align-items-center w-100">
+            <div class="col-lg-2">
+                <a class="navbar-brand fs-3" href="/">Carts $ Cars</a>
+            </div>
+            <div class="col-lg-8">
+                <%= form_with(method: :get) do |form| %>
+                    <%= form.text_field :search, class: 'form-control', placeholder: 'search' %>
+                <% end %>
+            </div>
+            <div class="col-lg-2 text-center">
+                <%= link_to cart_path, class: 'text-decoration-none text-dark btn-cart fs-5' do %>
+                    <i class="bi bi-cart3"></i>
+                    <%= @cart.cart_products.count %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+  </nav>
